@@ -1348,10 +1348,6 @@ testing = [
     { name = "pytest-xdist" },
     { name = "ruff" },
 ]
-tools = [
-    { name = "dearpygui" },
-    { name = "metadrive-simulator", marker = "platform_machine != 'aarch64'" },
-]
 
 [package.metadata]
 requires-dist = [
