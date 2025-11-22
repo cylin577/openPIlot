@@ -88,6 +88,11 @@ if [ -f "/etc/os-release" ]; then
   case "$VERSION_CODENAME" in
     "jammy" | "kinetic" | "noble" | "trixie" | "bookworm")
       install_ubuntu_lts_latest_requirements
+
+      # Build raylib
+      echo "Building raylib"
+      DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+      "$DIR/../third_party/raylib/build.sh"
       ;;
     *)
       echo "$ID $VERSION_ID is unsupported. This setup script is written for Ubuntu 24.04 or Debian 13."
