@@ -64,11 +64,11 @@ function install_ubuntu_common_requirements() {
     portaudio19-dev \
     qttools5-dev-tools \
     libqt5svg5-dev \
-    libqt5serialbus5-dev  \
     libqt5x11extras5-dev \
     libqt5opengl5-dev \
     gettext
 }
+# I've removed libqt5serialbus5-dev since it's not in Debian's APT repo
 
 # Install Ubuntu 24.04 LTS packages
 function install_ubuntu_lts_latest_requirements() {
@@ -86,11 +86,11 @@ function install_ubuntu_lts_latest_requirements() {
 if [ -f "/etc/os-release" ]; then
   source /etc/os-release
   case "$VERSION_CODENAME" in
-    "jammy" | "kinetic" | "noble")
+    "jammy" | "kinetic" | "noble" | "trixie" | "bookworm")
       install_ubuntu_lts_latest_requirements
       ;;
     *)
-      echo "$ID $VERSION_ID is unsupported. This setup script is written for Ubuntu 24.04."
+      echo "$ID $VERSION_ID is unsupported. This setup script is written for Ubuntu 24.04 or Debian 13."
       read -p "Would you like to attempt installation anyway? " -n 1 -r
       echo ""
       if [[ ! $REPLY =~ ^[Yy]$ ]]; then

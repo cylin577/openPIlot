@@ -142,7 +142,7 @@ function check_git() {
 function git_clone() {
   st="$(date +%s)"
   echo "Cloning openpilot..."
-  if $(git clone --filter=blob:none https://github.com/commaai/openpilot.git "$OPENPILOT_ROOT"); then
+  if $(git clone --filter=blob:none https://github.com/cylin577/openPIlot.git "$OPENPILOT_ROOT"); then
     if [[ -f $OPENPILOT_ROOT/launch_openpilot.sh ]]; then
       et="$(date +%s)"
       echo -e " ↳ [${GREEN}✔${NC}] Successfully cloned openpilot in $((et - st)) seconds.\n"
@@ -177,7 +177,8 @@ function install_with_op() {
   echo -e "\n----------------------------------------------------------------------"
   echo -e "[${GREEN}✔${NC}] openpilot was successfully installed into ${BOLD}$OPENPILOT_ROOT${NC}"
   echo -e "Checkout the docs at https://docs.comma.ai"
-  echo -e "Checkout how to contribute at https://github.com/commaai/openpilot/blob/master/docs/CONTRIBUTING.md"
+  echo -e "Checkout how to contribute at https://github.com/cylin577/openPIlot/blob/master/docs/CONTRIBUTING.md"
+  echo -e "WARNING: This fork is for simulation/dev only and CANNOT control real cars. To control a real vehicle, use Ubuntu and the commaai/openpilot repo."
 }
 
 show_motd
